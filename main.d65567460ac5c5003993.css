@@ -510,7 +510,7 @@ body.light-theme .noise {
 .shape-1,
 .shape-2 {
   position: absolute;
-  border: 2px solid, var(--main-color);
+  border: 4px solid, var(--main-color);
   border-radius: 30px;
 }
 .shape-1 {
@@ -584,11 +584,11 @@ label:hover {
   cursor: pointer;
 }
 .tab-label-fr {
-  border: 2px solid, var(--main-color);
+  border: 4px solid, var(--main-color);
   background-color: var(--main-color-active);
 }
 .tab-label-des {
-  border: 2px solid, var(--accent-color);
+  border: 4px solid, var(--accent-color);
   background-color: var(--accent-color-active);
 }
 #content1,
@@ -606,11 +606,11 @@ label:hover {
   transition: opacity 0.2s ease-out;
 }
 #content1 {
-  border: 2px solid, var(--main-color);
+  border: 4px solid, var(--main-color);
   background-color: var(--main-color-active);
 }
 #content2 {
-  border: 2px solid, var(--accent-color);
+  border: 4px solid, var(--accent-color);
   background-color: var(--accent-color-active);
 }
 
@@ -630,10 +630,10 @@ label:hover {
 }
 
 .hr-fr {
-  border: 1px solid, var(--main-color);
+  border: 4px solid, var(--main-color);
 }
 .hr-des {
-  border: 1px solid, var(--accent-color);
+  border: 4px solid, var(--accent-color);
 }
 
 .left-col,
