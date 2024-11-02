@@ -1,0 +1,50 @@
+{
+  "name": "portfolio",
+  "version": "1.0.0",
+  "description": "Сайт-портфолио (JavaScript, HTML, CSS)",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lnkpv/portfolio-js.git"
+  },
+  "private": true,
+  "bugs": {
+    "url": "https://github.com/lnkpv/portfolio-js/issues"
+  },
+  "homepage": "https://github.com/lnkpv/portfolio-js#readme",
+  "author": "lnkpv",
+  "license": "ISC",
+  "type": "module",
+  "scripts": {
+    "build": "webpack",
+    "start": "webpack serve",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.26.0",
+    "@babel/plugin-proposal-class-properties": "^7.18.6",
+    "@babel/preset-env": "^7.26.0",
+    "babel-loader": "^9.2.1",
+    "clean-webpack-plugin": "^4.0.0",
+    "css-loader": "^7.1.2",
+    "file-loader": "^6.2.0",
+    "gh-pages": "^6.2.0",
+    "html-webpack-plugin": "^5.6.3",
+    "image-minimizer-webpack-plugin": "^4.1.0",
+    "imagemin": "^9.0.0",
+    "imagemin-gifsicle": "^7.0.0",
+    "imagemin-jpegtran": "^8.0.0",
+    "imagemin-optipng": "^8.0.0",
+    "imagemin-svgo": "^11.0.1",
+    "mini-css-extract-plugin": "^2.9.2",
+    "style-loader": "^4.0.0",
+    "svgo": "^3.3.2",
+    "url-loader": "^4.1.1",
+    "webpack": "^5.96.1",
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^5.1.0"
+  },
+  "dependencies": {
+    "three": "^0.169.0"
+  }
+}
