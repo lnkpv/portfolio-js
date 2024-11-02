@@ -1,9 +1,11 @@
 .carousel {
+  /* max-width: var(--max-width-block); */
   margin-top: 50px;
   display: flex;
   flex-direction: column;
   width: 100%;
   justify-content: flex-end;
+  overflow-x: hidden;
   /* background: linear-gradient(to right, var(--block-color), transparent 80%, var(--block-color)); */
 }
 

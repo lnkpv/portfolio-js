@@ -44,6 +44,7 @@
 
   function resize() {
     maxWidth = window.innerWidth;
+    // carousel.style.width = maxWidth;
     width, height = getSize(maxWidth);
     totalWidth = width * items.length;
 
