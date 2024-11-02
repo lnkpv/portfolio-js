@@ -28,6 +28,8 @@ import qrF from '../images/qr/figma.png';
 import qrG from '../images/qr/github.png';
 
 import bg from '../images/bg.png';
+import bgD from '../images/bg-dark.png';
+import bgL from '../images/bg-light.png';
 
 
 function loadImg(id, source) {
@@ -65,18 +67,22 @@ loadImg('qr-g', qrG);
 
 var isMobile;
 var isCanv;
+var isImg;
+var isLight;
 
 function checkMobile() {
   if (window.innerWidth >= 1024 && !isCanv) {
     isMobile = false;
     isCanv = true;
+    isImg = false;
     init();
     animate();
-  } else if (window.innerWidth < 1024) {
+  } else if (window.innerWidth < 1024 && !isImg) {
     isMobile = true;
     isCanv = false;
+    isImg = true;
     var canvCont = document.querySelector(".canvas-container");
-    canvCont.innerHTML = `<img src=${bg} style="width: 100%; height: 100vh; mix-blend-mode: color-burn; z-index: -2;"/>`;
+    canvCont.innerHTML = `<img src=${(isLight)? bgL : bgD} style="width: 100%; height: 100vh; z-index: -2;"/>`;
   }
 }
 
@@ -102,17 +108,18 @@ document
     var canvCont = document.querySelector(".canvas-container");
     if (currentTheme === "light-theme") {
       document.body.className = "dark-theme";
-      console.log(isMobile);
+      isLight = false;
       if (isMobile) {
-        canvCont.innerHTML = `<img src=${bg} style="width: 100%; height: 100vh; mix-blend-mode: color-burn; z-index: -2;"/>`;
+        canvCont.innerHTML = `<img src=${bgD} style="width: 100%; height: 100vh; z-index: -2;"/>`;
       } else {
         canv.style= "mix-blend-mode: color-burn; position: relative; z-index: -2;";
       }
       
     } else {
       document.body.className = "light-theme";
+      isLight = true;
       if (isMobile) {
-        canvCont.innerHTML = `<img src=${bg} style="width: 100%; height: 100vh; mix-blend-mode: overlay; z-index: -2;"/>`;
+        canvCont.innerHTML = `<img src=${bgL} style="width: 100%; height: 100vh; z-index: -2;"/>`;
       } else {
         canv.style= "mix-blend-mode: overlay; position: relative";
       }
