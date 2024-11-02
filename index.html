@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+    />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Portfolio</title>
+    <!-- <link rel="stylesheet" type="text/css" href="./src/css/main.css" />
+    <link rel="stylesheet" type="text/css" href="./src/css/slider.css" />
+    <link rel="stylesheet" type="text/css" href="./src/css/media.css" /> -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"
+      integrity="sha512-1cK78a1o+ht2JcaW6g8OXYwqpev9+6GqOkz9xmBN9iUUhIndKtxwILGWYOSibOKjLsEdjyjZvYDq/cZwNeak0w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  <script defer src="main.bundle.js"></script><link href="main.ebbb4bfc9e9768150cf8.css" rel="stylesheet"></head>
+  <body class="dark-theme">
+    <div class="bg-filter"></div>
+    <svg class="noise" xmlns="http://www.w3.org/2000/svg">
+      <filter id="noiseFilter">
+        <feTurbulence
+          type="fractalNoise"
+          baseFrequency="5"
+          numOctaves="16"
+          stitchTiles="stitch"
+        />
+      </filter>
+
+      <rect width="100%" height="100%" filter="url(#noiseFilter)" />
+    </svg>
+
+    <div class="canvas-container" id="canvas-container"></div>
+
+    <header class="header">
+      <svg
+        style="display: none"
+        width="30"
+        height="24"
+        viewBox="0 0 30 24"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <symbol id="open">
+          <rect width="30" height="2" />
+          <rect y="10.6667" width="30" height="2" />
+          <rect y="21.3334" width="30" height="2" />
+        </symbol>
+      </svg>
+      <svg
+        style="display: none"
+        width="25"
+        height="25"
+        viewBox="0 0 25 25"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <symbol id="close">
+          <rect
+            x="2.07178"
+            y="1.01086"
+            width="31.5228"
+            height="2.10152"
+            transform="rotate(45 2.07178 1.01086)"
+          />
+          <rect
+            x="1.021"
+            y="23.0768"
+            width="31.5228"
+            height="2.10152"
+            transform="rotate(-45 1.021 23.0768)"
+          />
+        </symbol>
+      </svg>
+
+      <div class="header-nav">
+        <div class="accent-text logo">lnkpv</div>
+        <nav id="nav" class="nav">
+          <ul class="nav-list">
+            <li class="nav-item">
+              <a href="#id-home" class="nav-link active">Home</a>
+            </li>
+            <li class="nav-item">
+              <a href="#id-about" class="nav-link">About</a>
+            </li>
+            <li class="nav-item">
+              <a href="#id-projects" class="nav-link">Projects</a>
+            </li>
+            <li class="nav-item">
+              <a href="#id-contacts" class="nav-link">Contact</a>
+            </li>
+          </ul>
+          <button id="nav-btn" class="nav-button">
+            <svg id="nav-btn-img">
+              <use href="#open" />
+            </svg>
+          </button>
+        </nav>
+      </div>
+    </header>
+    <section class="home" id="id-home">
+      <svg style="display: none">
+        <symbol id="moon-1" viewBox="0 0 48 48">
+          <path
+            d="M39.8002 4.61439C39.4784 3.7952 38.3232 3.7952 38.0014 4.61439L37.1406 6.80495C37.0424 7.05505 36.8452 7.25303 36.596 7.35167L34.4134 8.21561C33.5972 8.53869 33.5972 9.69801 34.4134 10.0211L36.596 10.885C36.8452 10.9837 37.0424 11.1816 37.1406 11.4317L38.0014 13.6223C38.3232 14.4415 39.4784 14.4415 39.8002 13.6223L40.661 11.4317C40.7592 11.1816 40.9564 10.9837 41.2056 10.885L43.3882 10.0211C44.2044 9.69801 44.2044 8.53869 43.3882 8.21561L41.2056 7.35167C40.9564 7.25303 40.7592 7.05505 40.661 6.80495L39.8002 4.61439Z"
+          />
+          <path
+            d="M32.0656 16.2594C31.7436 15.4402 30.5886 15.4402 30.2666 16.2594L29.9528 17.0581C29.8546 17.3082 29.6574 17.5061 29.4082 17.6048L28.6124 17.9198C27.7962 18.2429 27.7962 19.4022 28.6124 19.7253L29.4082 20.0402C29.6574 20.1388 29.8546 20.3368 29.9528 20.587L30.2666 21.3856C30.5886 22.2048 31.7436 22.2048 32.0656 21.3856L32.3794 20.587C32.4776 20.3368 32.6748 20.1388 32.924 20.0402L33.7198 19.7253C34.536 19.4022 34.536 18.2429 33.7198 17.9198L32.924 17.6048C32.6748 17.5061 32.4776 17.3082 32.3794 17.0581L32.0656 16.2594Z"
+          />
+          <path
+            d="M24 44C35.0456 44 44 35.0456 44 24C44 23.0746 42.613 22.9216 42.1344 23.7136C39.8578 27.4812 35.723 30 31 30C23.8202 30 18 24.1798 18 17C18 12.2769 20.5188 8.1421 24.2864 5.86552C25.0784 5.38694 24.9254 4 24 4C12.9543 4 4 12.9543 4 24C4 35.0456 12.9543 44 24 44Z"
+          />
+        </symbol>
+      </svg>
+      <svg style="display: none">
+        <symbol id="sun-1" viewBox="0 0 48 48">
+          <path
+            d="M34 24C34 29.5228 29.5228 34 24 34C18.4772 34 14 29.5228 14 24C14 18.4772 18.4772 14 24 14C29.5228 14 34 18.4772 34 24Z"
+          />
+          <path
+            fill-rule="evenodd"
+            clip-rule="evenodd"
+            d="M24 2.5C24.8284 2.5 25.5 3.17158 25.5 4V8C25.5 8.82842 24.8284 9.5 24 9.5C23.1716 9.5 22.5 8.82842 22.5 8V4C22.5 3.17158 23.1716 2.5 24 2.5ZM7.3373 7.43218C7.8963 6.82078 8.8451 6.7783 9.4565 7.3373L13.9005 11.4005C14.5119 11.9595 14.5544 12.9083 13.9954 13.5197C13.4364 14.1311 12.4876 14.1735 11.8762 13.6145L7.43218 9.55138C6.82078 8.99238 6.7783 8.04358 7.3373 7.43218ZM40.6628 7.43218C41.2218 8.04358 41.1792 8.99238 40.5678 9.55138L36.1238 13.6145C35.5124 14.1735 34.5636 14.1311 34.0046 13.5197C33.4456 12.9083 33.488 11.9595 34.0994 11.4005L38.5436 7.3373C39.155 6.7783 40.1036 6.82078 40.6628 7.43218ZM2.5 24C2.5 23.1716 3.17158 22.5 4 22.5H8C8.82842 22.5 9.5 23.1716 9.5 24C9.5 24.8284 8.82842 25.5 8 25.5H4C3.17158 25.5 2.5 24.8284 2.5 24ZM38.5 24C38.5 23.1716 39.1716 22.5 40 22.5H44C44.8284 22.5 45.5 23.1716 45.5 24C45.5 24.8284 44.8284 25.5 44 25.5H40C39.1716 25.5 38.5 24.8284 38.5 24ZM34.051 34.0504C34.6368 33.4646 35.5866 33.4646 36.1724 34.0504L40.6164 38.495C41.2022 39.0808 41.202 40.0306 40.6162 40.6164C40.0304 41.2022 39.0806 41.202 38.495 40.6162L34.051 36.1716C33.4652 35.5858 33.4652 34.6362 34.051 34.0504ZM13.9493 34.0506C14.5351 34.6364 14.5351 35.5862 13.9493 36.172L9.50488 40.6164C8.9191 41.2022 7.96936 41.2022 7.38356 40.6164C6.79778 40.0306 6.79778 39.0808 7.38356 38.4952L11.828 34.0506C12.4138 33.4648 13.3635 33.4648 13.9493 34.0506ZM24 38.5C24.8284 38.5 25.5 39.1716 25.5 40V44C25.5 44.8284 24.8284 45.5 24 45.5C23.1716 45.5 22.5 44.8284 22.5 44V40C22.5 39.1716 23.1716 38.5 24 38.5Z"
+          />
+        </symbol>
+      </svg>
+      <div class="home-column">
+        <div class="accent-text name color">Якупова Алина</div>
+        <div class="accent-text title-1">Frontend Developer</div>
+        <div class="button-and-text">
+          <input type="checkbox" id="toggle_checkbox" />
+          <label for="toggle_checkbox">
+            <div id="star" class="knobs">
+              <svg class="star" id="star-1">
+                <use href="#moon-1" />
+              </svg>
+              <svg class="star" id="star-2">
+                <use href="#sun-1" />
+              </svg>
+            </div>
+            <div id="switch"></div>
+          </label>
+          <div class="accent-text title-1">& Designer</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="about" id="id-about">
+      <div class="about-content">
+        <div class="about-description">
+          <div class="accent-text title-2">Обо мне</div>
+          <div class="description-column">
+            <div class="about-text">Меня зовут Алина, мне 20 лет.</div>
+            <div class="about-text">Я живу в Москве.</div>
+            <div class="about-text">Люблю творить и создавать красивое.</div>
+            <div class="about-text">Английский: B2</div>
+          </div>
+        </div>
+        <div class="about-photo">
+          <div class="shape-1"></div>
+          <div class="shape-2"></div>
+          <img id="me" alt="" />
+        </div>
+      </div>
+      <div class="tab-wrap">
+        <div class="tab-fr-des">
+          <input id="tab-fr" type="radio" name="tabs" checked />
+          <label class="tab-label-fr" for="tab-fr">Frontend</label>
+          <input id="tab-des" type="radio" name="tabs" />
+          <label class="tab-label-des" for="tab-des">Design</label>
+          <div id="content1" class="tab-content">
+            <div class="left-col">
+              <div class="point left">JavaScript, HTML, CSS</div>
+              <div class="point left">TypeScript</div>
+              <div class="point left">React</div>
+            </div>
+            <div class="hr-fr"></div>
+            <div class="right-col">
+              <div class="point">SQL (PostgreSQL, MySQL)</div>
+              <div class="point">Python, C</div>
+              <div class="point">Изучала C++, Java</div>
+            </div>
+          </div>
+          <div id="content2" class="tab-content">
+            <div class="left-col">
+              <div class="point left">Figma</div>
+              <div class="point left">Tilda</div>
+              <div class="point left">Adobe Illustrator, Procreate</div>
+            </div>
+            <div class="hr-des"></div>
+            <div class="right-col">
+              <div class="point">Дизайн сайтов</div>
+              <div class="point">Дизайн мобильных приложений</div>
+              <div class="point">Создание презентаций и иконок</div>
+            </div>
+          </div>
+          <div class="icons">
+            <div class="icons-left">
+              <img id="js1" alt="" class="icons-fr icon1" />
+              <img id="js2" alt="" class="icons-fr icon1 shad" />
+              <img id="f1" alt="" class="icons-des icon1" />
+              <img id="f2" alt="" class="icons-des icon1 shad" />
+              <img id="ht1" alt="" class="icons-fr icon2" />
+              <img id="ht2" alt="" class="icons-fr icon2 shad" />
+              <img id="t1" alt="" class="icons-des icon2" />
+              <img id="t2" alt="" class="icons-des icon2 shad" />
+            </div>
+            <div class="icons-right">
+              <img id="r1" alt="" class="icons-fr icon3" />
+              <img id="r2" alt="" class="icons-fr icon3 shad" />
+              <img id="pr1" alt="" class="icons-des icon3" />
+              <img id="pr2" alt="" class="icons-des icon3 shad" />
+              <img id="ts1" alt="" class="icons-fr icon4" />
+              <img id="ts2" alt="" class="icons-fr icon4 shad" />
+              <img id="ill1" alt="" class="icons-des icon4" />
+              <img id="ill2" alt="" class="icons-des icon4 shad" />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="about-education">
+        <div class="accent-text title-2">Образование</div>
+        <div class="about-education-columns">
+          <div class="education-column">
+            <div class="years-text color">2022 - 2024</div>
+            <div class="text">
+              Компьютерные науки и&nbsp;системотехника, ФИТ&nbsp;НГУ
+            </div>
+          </div>
+          <div class="education-column">
+            <div class="years-text color">2024 - 2026</div>
+            <div class="text">
+              Прикладная информатика, Веб&#8209;разработка, Институт ЭМИТ
+              РАНХиГС
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="portfolio" id="id-projects">
+      <svg style="display: none" width="27" height="16" viewBox="0 0 27 16">
+        <path
+          id="arrow-left"
+          d="M8.18757 2.09695C8.66737 1.61716 8.66737 0.839495 8.18757 0.359704C7.70791 -0.119963 6.93012 -0.119963 6.45045 0.359704L0.719502 6.09066C-0.239833 7.05011 -0.239833 8.60556 0.719502 9.56502L6.45401 15.2994C6.93368 15.7791 7.71135 15.7791 8.19114 15.2994C8.6708 14.8197 8.6708 14.042 8.19114 13.5623L3.68791 9.05907L25.7717 9.05907C26.45 9.05907 27 8.50914 27 7.83072C27 7.15243 26.45 6.60238 25.7717 6.60238L3.68214 6.60238L8.18757 2.09695Z"
+        />
+      </svg>
+      <svg style="display: none" width="27" height="16" viewBox="0 0 27 16">
+        <path
+          id="arrow-right"
+          d="M18.8124 13.5622C18.3326 14.042 18.3326 14.8197 18.8124 15.2995C19.2921 15.7791 20.0699 15.7791 20.5495 15.2995L26.2805 9.56852C27.2398 8.60907 27.2398 7.05362 26.2805 6.09416L20.546 0.359768C20.0663 -0.119925 19.2887 -0.119925 18.8089 0.35978C18.3292 0.839472 18.3292 1.61722 18.8089 2.09691L23.3121 6.60011H1.22834C0.549953 6.60011 0 7.15004 0 7.82846C0 8.50675 0.549953 9.0568 1.22834 9.0568H23.3179L18.8124 13.5622Z"
+        />
+      </svg>
+
+      <div class="portfolio-title">
+        <div class="accent-text title-2">Проекты</div>
+      </div>
+      <div class="carousel">
+        <div class="carousel__body">
+          <div class="carousel__slider">
+            <div class="carousel__slider__item">
+              <div class="item__3d-frame">
+                <div class="item__3d-frame__box item__3d-frame__box--front">
+                  <div class="project-bg"></div>
+                  <div class="project-content">
+                    <div class="project-text">
+                      <div class="project-column">
+                        <div class="project-title">CureSound</div>
+                        <hr class="pr" />
+                        <div class="project-more-text">
+                          <div class="more-text">
+                            Мобильное приложение для борьбы со&nbsp;стрессом
+                          </div>
+                          <div class="more-text">
+                            React Native, TypeScript <br />
+                            Figma, Procreate
+                          </div>
+                        </div>
+                      </div>
+                      <div class="tags">
+                        <div class="tag">#frontend</div>
+                        <div class="tag">#design</div>
+                      </div>
+                    </div>
+                    <img class="project-img" id="cs" />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="carousel__slider__item">
+              <div class="item__3d-frame">
+                <div class="item__3d-frame__box item__3d-frame__box--front">
+                  <div class="project-bg"></div>
+                  <div class="project-content">
+                    <div class="project-text">
+                      <div class="project-column">
+                        <div class="project-title">Персональный тренер</div>
+                        <hr class="pr" />
+                        <div class="project-more-text">
+                          <div class="more-text">
+                            ПК приложение для отслеживания выполнения упражнений
+                            в&nbsp;режиме реального времени
+                          </div>
+                          <div class="more-text">
+                            Python, OpenCV, Mediapipe, Numpy, Math,
+                            Qt&nbsp;Designer, Time
+                          </div>
+                          <div class="more-text color">
+                            Номинация: Intel "AI for Youth" 2021
+                          </div>
+                        </div>
+                      </div>
+                      <div class="tags">
+                        <div class="tag">#development</div>
+                      </div>
+                    </div>
+                    <img class="project-img" id="pt" />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="carousel__slider__item">
+              <div class="item__3d-frame">
+                <div class="item__3d-frame__box item__3d-frame__box--front">
+                  <div class="project-bg"></div>
+                  <div class="project-content">
+                    <div class="project-text">
+                      <div class="project-column">
+                        <div class="project-title">WVM Продвижение</div>
+                        <hr class="pr" />
+                        <div class="project-more-text">
+                          <div class="more-text">
+                            Дизайн страницы сайта компании WVM
+                            для&nbsp;продвижения в&nbsp;YouTube (Google Ads).
+                          </div>
+                          <div class="more-text">Figma, Tilda, JavaScript</div>
+                        </div>
+                      </div>
+                      <div class="tags">
+                        <div class="tag">#design</div>
+                      </div>
+                    </div>
+                    <img class="project-img" id="wvm" />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="carousel__slider__item">
+              <div class="item__3d-frame">
+                <div class="item__3d-frame__box item__3d-frame__box--front">
+                  <div class="project-bg"></div>
+                  <div class="project-content">
+                    <div class="project-text">
+                      <div class="project-other-column">
+                        <div class="project-title">А также</div>
+                        <hr class="pr" />
+                        <div class="project-other-text">
+                          <div class="other-text">
+                            <!-- prettier-ignore -->
+                            <ul>
+                              <li class="li-text">Разработка тг-ботов (Python, Django)
+                              </li>
+                              <li class="li-text">MovieApp (Кинопоиск API)</li>
+                              <li class="li-text">Реализация и вёрстка виджета VK Музыки
+                                (TypeScript, React, Mobx)
+                              </li>
+                              <li class="li-text">Создание игры TV Tennis (Assembler для ИИ, схема
+                                в&nbsp;Logisim для&nbsp;функционала)
+                              </li>
+                            </ul>
+                          </div>
+                          <div class="other-text">
+                            <!-- prettier-ignore -->
+                            <ul>
+                              <li class="li-text">Дизайн презентаций</li>
+                              <br/>
+                              <li class="li-text">Дизайн тг-приложения</li>
+                              <li class="li-text" class="li-text">Редакция множества сайтов (Tilda)
+                              </li>
+                              <li class="li-text">Создание иконок (Figma, Procreate, Adobe
+                                Illustrator)
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+                        <div class="project-extra-text">
+                          <div class="extra-text color">Этот сайт:</div>
+                          <div class="extra-text">
+                            [JavaScript, HTML, CSS, Three.js]
+                          </div>
+                        </div>
+                      </div>
+                      <div class="tags">
+                        <div class="tag">#design</div>
+                        <div class="tag">#frontend</div>
+                        <div class="tag">#development</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-buttons">
+            <button class="arrow-button">
+              <svg class="arrow" width="27" height="16" viewBox="0 0 27 16">
+                <use href="#arrow-left" />
+              </svg>
+            </button>
+            <button class="arrow-button">
+              <svg class="arrow" width="27" height="16" viewBox="0 0 27 16">
+                <use href="#arrow-right" />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="quote-section">
+      <div class="accent-text quote">
+        Ценю открытость, усердие и&nbsp;креатив
+      </div>
+      <div class="quote-line">
+        <div class="accent-text quote">Ведь я</div>
+        <div class="accent-text quote" id="chars">Разработчик</div>
+      </div>
+    </section>
+
+    <footer class="contacts" id="id-contacts">
+      <svg width="40" height="40" viewBox="0 0 40 40" style="display: none">
+        <path
+          id="phoneId"
+          d="M27.7158 23.1515L28.475 22.3967L26.7122 20.6239L25.9532 21.3787L27.7158 23.1515ZM31.0243 22.0805L34.2085 23.8115L35.4025 21.6152L32.2183 19.8842L31.0243 22.0805ZM34.8215 27.2519L32.4538 29.606L34.2165 31.3789L36.5842 29.0247L34.8215 27.2519ZM31.0112 30.364C28.5947 30.5892 22.3427 30.3885 15.5736 23.6579L13.8109 25.4307C21.1977 32.7755 28.2282 33.1342 31.2432 32.8532L31.0112 30.364ZM15.5736 23.6579C9.12133 17.2422 8.05252 11.8461 7.91947 9.50511L5.4235 9.64696C5.59093 12.5933 6.91438 18.5734 13.8109 25.4307L15.5736 23.6579ZM17.8658 13.3574L18.3438 12.8821L16.5812 11.1093L16.1032 11.5846L17.8658 13.3574ZM18.7243 6.82337L16.6228 4.01604L14.6214 5.51427L16.723 8.32162L18.7243 6.82337ZM9.55438 3.40501L6.93838 6.00616L8.70112 7.77896L11.3171 5.17781L9.55438 3.40501ZM16.9845 12.471C16.1031 11.5846 16.102 11.5858 16.1008 11.587C16.1004 11.5874 16.0992 11.5886 16.0983 11.5894C16.0967 11.591 16.095 11.5927 16.0933 11.5944C16.09 11.5979 16.0865 11.6015 16.0829 11.6052C16.0757 11.6127 16.068 11.6208 16.06 11.6295C16.0439 11.647 16.0263 11.6669 16.0074 11.6895C15.9696 11.7346 15.9268 11.7901 15.8818 11.8565C15.7915 11.9896 15.6932 12.1657 15.6098 12.3871C15.4396 12.8388 15.3484 13.4344 15.4627 14.1718C15.6865 15.6139 16.6797 17.5189 19.2238 20.0485L20.9865 18.2757C18.6057 15.9083 18.0385 14.4677 17.9332 13.7885C17.883 13.4653 17.935 13.3062 17.9493 13.2685C17.958 13.2452 17.9622 13.2429 17.9515 13.2588C17.9462 13.2666 17.9373 13.2787 17.9235 13.2952C17.9167 13.3034 17.9085 13.3127 17.899 13.323C17.8942 13.3282 17.8892 13.3337 17.8835 13.3394C17.8808 13.3423 17.878 13.3452 17.875 13.3482C17.8735 13.3497 17.872 13.3512 17.8705 13.3527C17.8698 13.3535 17.8687 13.3547 17.8682 13.355C17.867 13.3562 17.8658 13.3574 16.9845 12.471ZM19.2238 20.0485C21.7688 22.579 23.6827 23.5639 25.1272 23.7855C25.8653 23.8987 26.4605 23.8084 26.912 23.6402C27.1333 23.5577 27.3097 23.4605 27.443 23.3712C27.5097 23.3265 27.5653 23.284 27.6105 23.2465C27.6332 23.2279 27.6532 23.2104 27.6707 23.1944C27.6795 23.1864 27.6877 23.1789 27.6952 23.1717C27.699 23.168 27.7025 23.1645 27.706 23.1612C27.7077 23.1595 27.7093 23.1579 27.711 23.1562C27.7118 23.1554 27.7132 23.1542 27.7135 23.1539C27.7147 23.1527 27.7158 23.1515 26.8345 22.265C25.9532 21.3787 25.9543 21.3775 25.9555 21.3764C25.9558 21.376 25.957 21.3749 25.9578 21.374C25.9593 21.3725 25.9608 21.371 25.9623 21.3695C25.9655 21.3667 25.9683 21.3639 25.9712 21.361C25.977 21.3555 25.9825 21.3505 25.9877 21.3457C25.998 21.3364 26.0073 21.3282 26.0157 21.3215C26.032 21.3079 26.0442 21.2992 26.0517 21.294C26.0672 21.2837 26.064 21.2884 26.0393 21.2975C25.9985 21.3127 25.835 21.3649 25.5063 21.3144C24.8175 21.2089 23.3667 20.6422 20.9865 18.2757L19.2238 20.0485ZM16.6228 4.01604C14.9239 1.74672 11.5833 1.38764 9.55438 3.40501L11.3171 5.17781C12.2033 4.29669 13.777 4.38637 14.6214 5.51427L16.6228 4.01604ZM7.91947 9.50511C7.88668 8.92826 8.15125 8.32569 8.70112 7.77896L6.93838 6.00616C6.04285 6.89661 5.33882 8.15711 5.4235 9.64696L7.91947 9.50511ZM32.4538 29.606C31.9958 30.0615 31.5048 30.318 31.0112 30.364L31.2432 32.8532C32.4675 32.739 33.4707 32.1205 34.2165 31.3789L32.4538 29.606ZM18.3438 12.8821C19.9847 11.2505 20.1067 8.66986 18.7243 6.82337L16.723 8.32162C17.3955 9.21992 17.2955 10.399 16.5812 11.1093L18.3438 12.8821ZM34.2085 23.8115C35.5715 24.5525 35.7838 26.2949 34.8215 27.2519L36.5842 29.0247C38.818 26.8035 38.1292 23.0974 35.4025 21.6152L34.2085 23.8115ZM28.475 22.3967C29.115 21.7604 30.1452 21.6027 31.0243 22.0805L32.2183 19.8842C30.4123 18.9024 28.171 19.1735 26.7122 20.6239L28.475 22.3967Z"
+        />
+      </svg>
+      <svg
+        width="40"
+        height="40"
+        viewBox="0 0 40 40"
+        xmlns="http://www.w3.org/2000/svg"
+        style="display: none"
+      >
+        <path
+          id="tgId"
+          d="M27.6525 12.55C27.66 12.55 27.67 12.55 27.68 12.55C27.9412 12.55 28.1838 12.6313 28.3825 12.7713L28.3787 12.7688C28.5237 12.895 28.6213 13.0725 28.645 13.2725V13.2763C28.67 13.4288 28.6838 13.6038 28.6838 13.7825C28.6838 13.8638 28.6813 13.9438 28.675 14.0238V14.0125C28.3938 16.9738 27.1737 24.155 26.5538 27.47C26.2913 28.8738 25.775 29.3438 25.275 29.3888C24.1887 29.49 23.3638 28.6713 22.3113 27.9813C20.6638 26.9 19.7325 26.2275 18.1338 25.1737C16.285 23.9575 17.4838 23.2862 18.5363 22.1937C18.8125 21.9062 23.6012 17.55 23.695 17.155C23.7 17.1313 23.7025 17.105 23.7025 17.0775C23.7025 16.98 23.6663 16.8912 23.6075 16.8237C23.5425 16.7812 23.4613 16.7575 23.3762 16.7575C23.32 16.7575 23.2663 16.7688 23.2162 16.7875L23.2188 16.7863C23.0538 16.8238 20.4221 18.5629 15.3237 22.0038C14.7675 22.4425 14.065 22.72 13.3 22.7525H13.2925C12.2087 22.6213 11.225 22.38 10.2912 22.0363L10.3837 22.0662C9.21125 21.6838 8.28 21.4825 8.36 20.835C8.4025 20.4983 8.86667 20.1537 9.7525 19.8013C15.2092 17.4237 18.8479 15.8567 20.6688 15.1C22.6775 14.0338 25.0063 13.1562 27.455 12.5875L27.6513 12.5487L27.6525 12.55ZM19.9125 1.28125C9.535 1.30625 1.13125 9.725 1.13125 20.1062C1.13125 30.5025 9.55875 38.9313 19.9563 38.9313C30.3538 38.9313 38.7812 30.5037 38.7812 20.1062C38.7812 9.725 30.3775 1.30625 20.0025 1.28125H20C19.9708 1.28125 19.9417 1.28125 19.9125 1.28125Z"
+        />
+      </svg>
+
+      <svg
+        width="40"
+        height="40"
+        viewBox="0 0 40 40"
+        xmlns="http://www.w3.org/2000/svg"
+        style="display: none"
+      >
+        <path
+          id="emailId"
+          d="M39.8967 8.77152C39.7164 7.86324 39.3137 7.03207 38.7513 6.34543C38.6327 6.19582 38.5088 6.06184 38.3745 5.92785C37.378 4.92645 35.9794 4.30176 34.4515 4.30176H5.54852C4.02063 4.30176 2.62703 4.92645 1.62586 5.92785C1.49188 6.06184 1.36797 6.19582 1.24906 6.34543C0.686328 7.03199 0.283594 7.86324 0.108281 8.77152C0.03625 9.12207 0 9.48434 0 9.85059V30.15C0 30.9288 0.165156 31.6774 0.459687 32.3534C0.732891 32.9987 1.1357 33.5826 1.62578 34.0722C1.75 34.1961 1.87336 34.31 2.00797 34.4233C2.96781 35.2182 4.2068 35.6983 5.54852 35.6983H34.4515C35.7937 35.6983 37.038 35.2182 37.9923 34.4183C38.1266 34.31 38.2505 34.1961 38.3745 34.0722C38.8643 33.5826 39.267 32.9987 39.5459 32.3534V32.3484C39.8403 31.6724 39.9999 30.9288 39.9999 30.1501V9.85059C40 9.48434 39.9643 9.12207 39.8967 8.77152ZM3.63352 7.93527C4.12922 7.44012 4.79492 7.14035 5.54852 7.14035H34.4515C35.2051 7.14035 35.8766 7.44012 36.3665 7.93527C36.4541 8.02348 36.5367 8.12176 36.6096 8.21941L21.4606 21.4221C21.0428 21.7883 20.5267 21.9692 20 21.9692C19.4786 21.9692 18.9628 21.7883 18.5395 21.4221L3.39625 8.21379C3.46328 8.11613 3.54586 8.02348 3.63352 7.93527ZM2.83859 30.15V11.1512L13.8014 20.7149L2.84414 30.2684C2.83859 30.2321 2.83859 30.1914 2.83859 30.15ZM34.4515 32.8592H5.54852C5.05781 32.8592 4.59867 32.7302 4.2068 32.5036L15.7676 22.4286L16.8469 23.3675C17.7501 24.1524 18.8803 24.5499 20 24.5499C21.1255 24.5499 22.2556 24.1524 23.1588 23.3675L24.2375 22.4286L35.7938 32.5036C35.4013 32.7302 34.9422 32.8592 34.4515 32.8592ZM37.1614 30.15C37.1614 30.1914 37.1614 30.2321 37.1561 30.2684L26.1989 20.7204L37.1614 11.1563V30.15Z"
+        />
+      </svg>
+
+      <div class="contacts-content">
+        <div class="contacts-left">
+          <div class="accent-text title-2">Контакты</div>
+          <div class="contacts-social">
+            <a target="_blank" href="tel:+79134545844" class="social-link">
+              <svg>
+                <use href="#phoneId" />
+              </svg>
+              <div class="text">+7 (913) 454-58-44</div>
+            </a>
+            <a target="_blank" href="https://t.me/lnkpvv" class="social-link"
+              ><svg>
+                <use href="#tgId" />
+              </svg>
+              <div class="text">@lnkpvv</div></a
+            >
+            <a
+              target="_blank"
+              href="mailto:a.yakupova2004@yandex.ru"
+              class="social-link"
+              ><svg>
+                <use href="#emailId" />
+              </svg>
+              <div class="text">a.yakupova2004@yandex.ru</div></a
+            >
+          </div>
+        </div>
+        <div class="contacts-right">
+          <div class="contacts-qr">
+            <div class="subtitle">Github</div>
+            <img class="qr-img" id="qr-g" alt="github" />
+            <div class="btn">
+              <a
+                href="https://github.com/lnkpv"
+                target="_blank"
+                class="btn-front btn-text"
+                >Посмотреть</a
+              >
+            </div>
+          </div>
+          <div class="contacts-qr">
+            <div class="subtitle">Примеры работ в Figma</div>
+            <img class="qr-img" id="qr-f" alt="figma" />
+            <div class="btn">
+              <a
+                href="https://www.figma.com/design/D1S5etiku09OO9qNB4NPNq/%D0%9F%D1%80%D0%B8%D0%BC%D0%B5%D1%80%D1%8B?node-id=0-1&t=ioCGqjpYLzE2Mn3Q-1"
+                target="_blank"
+                class="btn-front btn-text"
+                >Посмотреть</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- <script src="./src/js/main.js"></script>
+    <script src="./src/js/background.js" type="module"></script>
+    <script src="./src/js/text.js" type="module"></script>
+    <script src="./src/js/slider.js" type="module"></script> -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/smoothscroll/1.4.10/SmoothScroll.min.js"
+      integrity="sha256-huW7yWl7tNfP7lGk46XE+Sp0nCotjzYodhVKlwaNeco="
+      crossorigin="anonymous"
+      async
+    ></script>
+    <script defer>
+      SmoothScroll({
+        // Время скролла 400 = 0.4 секунды
+        animationTime: 600,
+        // Размер шага в пикселях
+        stepSize: 75,
+        // Ускорение
+        accelerationDelta: 40,
+        // Максимальное ускорение
+        accelerationMax: 2,
+
+        keyboardSupport: true,
+        arrowScroll: 50,
+        pulseAlgorithm: true,
+        pulseScale: 4,
+        pulseNormalize: 1,
+        touchpadSupport: true,
+      });
+    </script>
+    <script id="vertexShader" type="x-shader/x-vertex">
+      void main() {
+          gl_Position = projectionMatrix * modelViewMatrix * vec4( position, 1.0 );
+      }
+    </script>
+  </body>
+</html>
