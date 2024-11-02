@@ -3,7 +3,7 @@ import "../css/main.css";
 import "../css/slider.css";
 import "../css/media.css";
 
-import "./background.js";
+import {init, animate} from "./background.js";
 import "./slider.js";
 import "./scroll.js";
 import "./text.js";
@@ -26,6 +26,8 @@ import pro from '../images/icons/procreate.svg';
 
 import qrF from '../images/qr/figma.png';
 import qrG from '../images/qr/github.png';
+
+import bg from '../images/bg.png';
 
 
 function loadImg(id, source) {
@@ -61,6 +63,24 @@ loadImg('pr2', pro);
 loadImg('qr-f', qrF);
 loadImg('qr-g', qrG);
 
+var isMobile;
+var isCanv;
+
+function checkMobile() {
+  if (window.innerWidth >= 1024 && !isCanv) {
+    isMobile = false;
+    isCanv = true;
+    init();
+    animate();
+  } else if (window.innerWidth < 1024) {
+    isMobile = true;
+    isCanv = false;
+    var canvCont = document.querySelector(".canvas-container");
+    canvCont.innerHTML = `<img src=${bg} style="width: 100%; height: 100%; mix-blend-mode: color-burn"/>`;
+  }
+}
+
+checkMobile();
 
 const nav = document.querySelector("#nav");
 const navBtn = document.querySelector("#nav-btn");
@@ -79,13 +99,23 @@ document
   .addEventListener("click", function () {
     const currentTheme = document.body.className;
     var canv = document.querySelector('#canv');
-    console.log(canv.style);
+    var canvCont = document.querySelector(".canvas-container");
     if (currentTheme === "light-theme") {
       document.body.className = "dark-theme";
-      canv.style= "mix-blend-mode: color-burn; position: relative";
+      console.log(isMobile);
+      if (isMobile) {
+        canvCont.innerHTML = `<img src=${bg} style="width: 100%; height: 100%; mix-blend-mode: color-burn"/>`;
+      } else {
+        canv.style= "mix-blend-mode: color-burn; position: relative";
+      }
+      
     } else {
       document.body.className = "light-theme";
-      canv.style= "mix-blend-mode: overlay; position: relative";
+      if (isMobile) {
+        canvCont.innerHTML = `<img src=${bg} style="width: 100%; height: 100%; mix-blend-mode: overlay"/>`;
+      } else {
+        canv.style= "mix-blend-mode: overlay; position: relative";
+      }
     }
   });
 
@@ -100,3 +130,5 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
     });
   });
 });
+
+window.onresize = checkMobile;

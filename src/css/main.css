@@ -133,6 +133,10 @@ body.light-theme * .portfolio-title {
 
 .canvas-container {
   position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
   background: var(--bg-color);
   z-index: -5;
 }
@@ -502,7 +506,7 @@ label:hover {
   opacity: 0;
   flex-direction: row;
   justify-content: space-evenly;
-  column-gap: 15px;
+  column-gap: 13px;
   padding: 24px 0;
   border-bottom-left-radius: 40px;
   border-bottom-right-radius: 40px;

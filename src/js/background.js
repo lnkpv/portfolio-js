@@ -4,10 +4,9 @@ let container;
 let camera, scene, renderer, clock;
 let uniforms;
 
-init();
-animate();
 
-function init() {
+
+export function init() {
   container = document.getElementById("canvas-container");
 
   camera = new THREE.PerspectiveCamera(
@@ -175,7 +174,7 @@ function onWindowResize(event) {
   uniforms.u_resolution.value.y = renderer.domElement.height;
 }
 
-function animate() {
+export function animate() {
   requestAnimationFrame(animate);
   render();
 }
