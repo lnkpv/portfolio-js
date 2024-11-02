@@ -131,6 +131,21 @@ body.light-theme * .portfolio-title {
 
 /*#region Background */
 
+.wrapper {
+  position: fixed;
+  height: 100vh;
+  width: 100%;
+  z-index:-2;
+}
+.wrapper > div {
+  position:absolute;
+  height: 100vh;
+  left:0;
+  right:0;
+  z-index:-2;
+  top:0;
+}
+
 .canvas-container {
   position: fixed;
   top: 0;

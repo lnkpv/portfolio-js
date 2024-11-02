@@ -76,7 +76,7 @@ function checkMobile() {
     isMobile = true;
     isCanv = false;
     var canvCont = document.querySelector(".canvas-container");
-    canvCont.innerHTML = `<img src=${bg} style="width: 100%; height: 100%; mix-blend-mode: color-burn"/>`;
+    canvCont.innerHTML = `<img src=${bg} style="width: 100%; height: 100vh; mix-blend-mode: color-burn; z-index: -2;"/>`;
   }
 }
 
@@ -104,15 +104,15 @@ document
       document.body.className = "dark-theme";
       console.log(isMobile);
       if (isMobile) {
-        canvCont.innerHTML = `<img src=${bg} style="width: 100%; height: 100%; mix-blend-mode: color-burn"/>`;
+        canvCont.innerHTML = `<img src=${bg} style="width: 100%; height: 100vh; mix-blend-mode: color-burn; z-index: -2;"/>`;
       } else {
-        canv.style= "mix-blend-mode: color-burn; position: relative";
+        canv.style= "mix-blend-mode: color-burn; position: relative; z-index: -2;";
       }
       
     } else {
       document.body.className = "light-theme";
       if (isMobile) {
-        canvCont.innerHTML = `<img src=${bg} style="width: 100%; height: 100%; mix-blend-mode: overlay"/>`;
+        canvCont.innerHTML = `<img src=${bg} style="width: 100%; height: 100vh; mix-blend-mode: overlay; z-index: -2;"/>`;
       } else {
         canv.style= "mix-blend-mode: overlay; position: relative";
       }
