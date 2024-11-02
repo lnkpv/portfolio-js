@@ -78,10 +78,14 @@ document
   .getElementById("toggle_checkbox")
   .addEventListener("click", function () {
     const currentTheme = document.body.className;
+    var canv = document.querySelector('#canv');
+    console.log(canv.style);
     if (currentTheme === "light-theme") {
       document.body.className = "dark-theme";
+      canv.style= "mix-blend-mode: color-burn; position: relative";
     } else {
       document.body.className = "light-theme";
+      canv.style= "mix-blend-mode: overlay; position: relative";
     }
   });
 

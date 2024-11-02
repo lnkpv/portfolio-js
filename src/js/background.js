@@ -1,4 +1,4 @@
-import * as THREE from './three.module.js';
+import * as THREE from "./three.module.js";
 
 let container;
 let camera, scene, renderer, clock;
@@ -8,29 +8,33 @@ init();
 animate();
 
 function init() {
-    container = document.getElementById('canvas-container');
+  container = document.getElementById("canvas-container");
 
-    camera = new THREE.PerspectiveCamera(10, container.clientWidth / container.clientHeight, 0.1, 1000);
-    camera.position.set(0, 0, 0);
+  camera = new THREE.PerspectiveCamera(
+    10,
+    container.clientWidth / container.clientHeight,
+    0.1,
+    1000
+  );
+  camera.position.set(0, 0, 0);
 
-    scene = new THREE.Scene();
-    clock = new THREE.Clock();
+  scene = new THREE.Scene();
+  clock = new THREE.Clock();
 
-    var geometry = new THREE.PlaneGeometry(10, 5); // Изменяем на 3D плоскость
+  var geometry = new THREE.PlaneGeometry(10, 5); // Изменяем на 3D плоскость
 
-    uniforms = {
-        u_time: {type: "f", value: 70.0},
-        u_resolution: {type: "v2", value: new THREE.Vector2()},
-        u_mouse: {type: "v2", value: new THREE.Vector2()}
-    };
+  uniforms = {
+    u_time: { type: "f", value: 70.0 },
+    u_resolution: { type: "v2", value: new THREE.Vector2() },
+    u_mouse: { type: "v2", value: new THREE.Vector2() },
+  };
 
-    var material = new THREE.ShaderMaterial({
-        uniforms: uniforms,
-        vertexShader: `void main() {
+  var material = new THREE.ShaderMaterial({
+    uniforms: uniforms,
+    vertexShader: `void main() {
         gl_Position = projectionMatrix * modelViewMatrix * vec4( position, 1.0 );
     }`,
-        fragmentShader:
-            `#ifdef GL_ES
+    fragmentShader: `#ifdef GL_ES
         precision mediump float;
         #endif
         
@@ -131,49 +135,52 @@ function init() {
           //color *= color2*1. + color1*0.3;
           gl_FragColor = vec4(color, 0.9);
     }`,
-        transparent: true,
-        depthWrite: false,
-        blending: THREE.NormalBlending
-    });
+    transparent: true,
+    depthWrite: false,
+    blending: THREE.NormalBlending,
+  });
 
-    var mesh = new THREE.Mesh(geometry, material);
-    mesh.position.set(0, 0, -5);
-    scene.add(mesh);
+  var mesh = new THREE.Mesh(geometry, material);
+  mesh.position.set(0, 0, -5);
+  scene.add(mesh);
 
-    renderer = new THREE.WebGLRenderer({alpha: true});
-    renderer.setClearColor(0x000000, 0);
-    renderer.domElement.width = document.body.style.width;
-    renderer.domElement.height = document.body.style.height;
+  renderer = new THREE.WebGLRenderer({ alpha: true });
+  renderer.setClearColor(0x000000, 0);
+  renderer.domElement.width = document.body.style.width;
+  renderer.domElement.height = document.body.style.height;
+  renderer.domElement.id = "canv";
+  renderer.domElement.style =
+      "mix-blend-mode: color-burn; position: relative";
 
-    container.appendChild(renderer.domElement);
+  container.appendChild(renderer.domElement);
 
-    onWindowResize();
-    window.addEventListener('resize', onWindowResize, false);
+  onWindowResize();
+  window.addEventListener("resize", onWindowResize, false);
 
-    document.onmousemove = function (e) {
-        uniforms.u_mouse.value.x = e.pageX
-        uniforms.u_mouse.value.y = e.pageY
-    }
+  document.onmousemove = function (e) {
+    uniforms.u_mouse.value.x = e.pageX;
+    uniforms.u_mouse.value.y = e.pageY;
+  };
 }
 
-console.log(document.body.clientWidth , window.innerHeight);
+console.log(document.body.clientWidth, window.innerHeight);
 
 function onWindowResize(event) {
-    // container.clientHeight = window.innerHeight;
-    // container.clientWidth = window.innerWidth;
-    camera.aspect = document.body.clientWidth / window.innerHeight;
-    camera.updateProjectionMatrix();
-    renderer.setSize(document.body.clientWidth, window.innerHeight);
-    uniforms.u_resolution.value.x = renderer.domElement.width;
-    uniforms.u_resolution.value.y = renderer.domElement.height;
+  // container.clientHeight = window.innerHeight;
+  // container.clientWidth = window.innerWidth;
+  camera.aspect = document.body.clientWidth / window.innerHeight;
+  camera.updateProjectionMatrix();
+  renderer.setSize(document.body.clientWidth, window.innerHeight);
+  uniforms.u_resolution.value.x = renderer.domElement.width;
+  uniforms.u_resolution.value.y = renderer.domElement.height;
 }
 
 function animate() {
-    requestAnimationFrame(animate);
-    render();
+  requestAnimationFrame(animate);
+  render();
 }
 
 function render() {
-    uniforms.u_time.value += clock.getDelta();
-    renderer.render(scene, camera);
+  uniforms.u_time.value += clock.getDelta();
+  renderer.render(scene, camera);
 }

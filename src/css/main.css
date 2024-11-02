@@ -42,8 +42,8 @@ body.light-theme {
   --main-color-active: rgba(181, 93, 231, 0.2);
   --accent-color: rgba(235, 209, 0, 1);
   --accent-color-active: rgba(235, 209, 0, 0.2);
-  --bg-color: #6d4bc5;
-  --blend-mode: soft-light;
+  --bg-color: #7e5fcd;
+  --blend-mode: overlay;
 }
 
 /*#region Typography */
@@ -133,17 +133,29 @@ body.light-theme * .portfolio-title {
 
 .canvas-container {
   position: fixed;
-  z-index: -2;
+  background: var(--bg-color);
+  z-index: -5;
 }
+/* .bg-filter {
+width: 100%;
+height: 300px;
+  background: var(--bg-color);
+  pointer-events: none;
 
-.bg-filter {
-  position: fixed;
-  height: 100%;
-  width: 100%;
-  background-color: var(--bg-color);
+} */
+
+/* #canv::before {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  content: '';
+  background: var(--bg-color);
   mix-blend-mode: var(--blend-mode);
   pointer-events: none;
-}
+  z-index: 20;
+} */
 
 .noise {
   position: fixed;

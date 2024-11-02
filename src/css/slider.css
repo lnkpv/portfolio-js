@@ -12,7 +12,7 @@
 .carousel-buttons {
   display: flex;
   max-width: 1600px;
-  margin: 0 auto;
+  margin: 0 auto 20px auto;
   justify-content: center;
   column-gap: 64px;
 }
