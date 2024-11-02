@@ -994,11 +994,13 @@ body.light-theme *.btn-front {
   !*** css ./node_modules/css-loader/dist/cjs.js!./src/css/slider.css ***!
   \**********************************************************************/
 .carousel {
+  /* max-width: var(--max-width-block); */
   margin-top: 50px;
   display: flex;
   flex-direction: column;
   width: 100%;
   justify-content: flex-end;
+  overflow-x: hidden;
   /* background: linear-gradient(to right, var(--block-color), transparent 80%, var(--block-color)); */
 }
 
