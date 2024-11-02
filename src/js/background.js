@@ -156,6 +156,8 @@ function init() {
     }
 }
 
+console.log(document.body.clientWidth , window.innerHeight);
+
 function onWindowResize(event) {
     // container.clientHeight = window.innerHeight;
     // container.clientWidth = window.innerWidth;
