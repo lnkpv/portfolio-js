@@ -42,7 +42,7 @@ body.light-theme {
   --main-color-active: rgba(181, 93, 231, 0.2);
   --accent-color: rgba(235, 209, 0, 1);
   --accent-color-active: rgba(235, 209, 0, 0.2);
-  --bg-color: #7e5fcd;
+  --bg-color: #6d4bc5;
   --blend-mode: overlay;
 }
 
@@ -409,8 +409,10 @@ body.light-theme .noise {
 .shape-1,
 .shape-2 {
   position: absolute;
-  border: 2px solid, var(--main-color);
+  border: solid, var(--main-color);
+  border-width: 2px;
   border-radius: 30px;
+  box-sizing: border-box;
 }
 .shape-1 {
   height: 60%;
@@ -483,12 +485,16 @@ label:hover {
   cursor: pointer;
 }
 .tab-label-fr {
-  border: 2px solid, var(--main-color);
+  border: solid, var(--main-color);
+  border-width: 2px;
   background-color: var(--main-color-active);
+  box-sizing: border-box;
 }
 .tab-label-des {
-  border: 2px solid, var(--accent-color);
+  border: solid, var(--accent-color);
+  border-width: 2px;
   background-color: var(--accent-color-active);
+  box-sizing: border-box;
 }
 #content1,
 #content2 {
@@ -505,11 +511,15 @@ label:hover {
   transition: opacity 0.2s ease-out;
 }
 #content1 {
-  border: 2px solid, var(--main-color);
+  border: solid, var(--main-color);
+  border-width: 2px;
+  box-sizing: border-box;
   background-color: var(--main-color-active);
 }
 #content2 {
-  border: 2px solid, var(--accent-color);
+  border: solid, var(--accent-color);
+  border-width: 2px;
+  box-sizing: border-box;
   background-color: var(--accent-color-active);
 }
 
@@ -529,10 +539,14 @@ label:hover {
 }
 
 .hr-fr {
-  border: 1px solid, var(--main-color);
+  border: solid, var(--main-color);
+  border-width: 2px;
+  box-sizing: border-box;
 }
 .hr-des {
-  border: 1px solid, var(--accent-color);
+  border: solid, var(--accent-color);
+  border-width: 2px;
+  box-sizing: border-box;
 }
 
 .left-col,

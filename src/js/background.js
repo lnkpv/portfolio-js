@@ -146,8 +146,10 @@ function init() {
 
   renderer = new THREE.WebGLRenderer({ alpha: true });
   renderer.setClearColor(0x000000, 0);
-  renderer.domElement.width = document.body.style.width;
-  renderer.domElement.height = document.body.style.height;
+  var myHeight = document.body.style.height + 100;
+  var myWidth = document.body.style.width;
+  renderer.domElement.width = myWidth;
+  renderer.domElement.height = myHeight;
   renderer.domElement.id = "canv";
   renderer.domElement.style =
       "mix-blend-mode: color-burn; position: relative";
@@ -163,14 +165,12 @@ function init() {
   };
 }
 
-console.log(document.body.clientWidth, window.innerHeight);
-
 function onWindowResize(event) {
   // container.clientHeight = window.innerHeight;
   // container.clientWidth = window.innerWidth;
   camera.aspect = document.body.clientWidth / window.innerHeight;
   camera.updateProjectionMatrix();
-  renderer.setSize(document.body.clientWidth, window.innerHeight);
+  renderer.setSize(document.body.clientWidth, window.innerHeight + 100);
   uniforms.u_resolution.value.x = renderer.domElement.width;
   uniforms.u_resolution.value.y = renderer.domElement.height;
 }

@@ -7,6 +7,7 @@
   justify-content: flex-end;
   overflow-x: hidden;
   /* background: linear-gradient(to right, var(--block-color), transparent 80%, var(--block-color)); */
+  overflow-y: hidden;
 }
 
 .carousel-buttons {
